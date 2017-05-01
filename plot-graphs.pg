@@ -1,0 +1,16 @@
+#!/usr/bin/gnuplot
+set terminal jpeg size 1600, 1200 font helvetica 12
+set logscale y 10
+set logscale x 2
+set yrange [1:1000]
+set xrange [1:1000000000]
+set grid xtics ytics
+set grid mxtics mytics
+set key horizontal
+
+set xlabel "Strides (bytes)"
+set ylabel "Read + Write (ns)"
+set title "Cache-benchmark Unbounded"
+set ytics add(2,3,4,5,6,7,8,9,12,14,16,18,20,24,28,32,36,40,50,60,70,80,90)
+
+plot '1024.dat' u 2:3 t '1K' w linespoints, '2048.dat' u 2:3 t '2K' w linespoints, '4096.dat' u 2:3 t '4K' w linespoints, '8192.dat' u 2:3 t '8K' w linespoints, '16384.dat' u 2:3 t '16K' w linespoints, '32768.dat' u 2:3 t '32K' w linespoints, '65536.dat' u 2:3 t '64K' w linespoints, '131072.dat' u 2:3 t '128K' w linespoints, '262144.dat' u 2:3 t '256K ' w linespoints, '524288.dat' u 2:3 t '512K' w linespoints, '1048576.dat' u 2:3 t '1M' w linespoints, '2097152.dat' u 2:3 t '2M' w linespoints, '4194304.dat' u 2:3 t '4M' w linespoints, '8388608.dat' u 2:3 t '8M' w linespoints, '16777216.dat' u 2:3 t '16M' w linespoints, '33554432.dat' u 2:3 t '32M' w linespoints, '67108864.dat' u 2:3 t '64M ' w linespoints, '134217728.dat' u 2:3 t '128M' w linespoints, '268435456.dat' u 2:3 t '256M' w linespoints, '536870912.dat' u 2:3 t '512M' w linespoints

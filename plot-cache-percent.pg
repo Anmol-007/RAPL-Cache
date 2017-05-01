@@ -1,0 +1,20 @@
+#!/usr/bin/gnuplot
+set terminal jpeg size 1600,1200 font helvetica 12
+set yrange [0:110]
+
+set grid xtics ytics
+set grid mytics
+set mytics 5
+#set xtics ("None"1,"7500"2,"7000"3,"6500"4,"6000"5,"5500"6,"5000"7,"4500"8,"4000"9,"3500"10,"3000"11,"2500"12,"2000"13,"1500"14,"1000"15,"500"16,"250"17,"125"18)
+set ytics add (1,2,3,4,5,6,7,8,9,10)
+
+set xlabel "Limit (mW)"
+set ylabel "Percentage of total runtime"
+
+set style data histograms
+set style histogram rowstacked
+set boxwidth 0.5 relative
+set style fill solid 1.0 border -1
+
+plot 'cache-percent.dat' u 3:xtic(2) t 'L1', 'cache-percent.dat' u 4 t 'L2', 'cache-percent.dat' u 5 t 'L3', 'cache-percent.dat' u 6 t 'Mem' 
+
